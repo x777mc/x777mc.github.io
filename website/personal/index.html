@@ -1,0 +1,172 @@
+
+    <!doctype html>
+
+    <html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Личный кабинет</title>
+        <link href="/website/sources/images/favicon.png" rel="icon">
+        <link href="/website/sources/css/bootstrap.css" rel="stylesheet">
+    </head>
+
+    <body id="contentxbody">
+        <script src="/website/sources/js/bootstrap.js"></script>
+        <script src="/website/sources/js/three.js"></script>
+        <script src="/website/sources/js/vanta.js"></script>
+
+        <script>
+            window.onload = function() {
+                document.body.onselectstart = function() {
+                    return false;
+                }
+            };
+        </script>
+
+        <style>
+            /* width */
+            ::-webkit-scrollbar {
+                width: 16px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+                background: #222f3e;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: #8395a7;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+        </style>
+
+        <div id="contentxdiv" align="center">
+            <div id="topspacer" style="height: 16px;"></div>
+            <div class="card" style="width: 675px;">
+                <div class="card-body">
+                    <div style="display: inline-block;">
+                        <a href="/website">
+                            <img src="/website/sources/images/gif-logo.gif" style="width: 64px; height: 64px;">
+                        </a>
+                    </div>
+                    <div style="display: inline-block; margin-left: 10px;">
+                        <a class="nav-link active" aria-current="page" href="/website/index.html">Главная</a>
+                    </div>
+                    <div style="display: inline-block;">
+                        <a class="nav-link" href="/website/download/index.html">Лаунчер</a>
+                    </div>
+                    <div style="display: inline-block;">
+                        <a class="nav-link" href="/website/download/info/index.html">Информация</a>
+                    </div>
+                    <div style="float: right; margin-top: 12px;">
+                        <div class="dropdown">
+                            <button style="width: 172px;" class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Аккаунт
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/website/personal/index.html">Выйти из аккаунта</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="width: 675px; margin-top: 16px;">
+                <div class="card-body">
+                    <div style="display: inline-block;" align="left">
+                        <h3 class="card-title">Изменение скина</h3>
+                        <p>Файл скина должен быть в формате PNG<br>
+                            с разрешением 64х64. Размер не должен <br>
+                            превышать 5 килобайт.</p>
+                    </div>
+                    <div style="display: inline-block; margin-left: 10px;">
+                        <form enctype="multipart/form-data" method="POST">
+                            <input type="hidden" name="MAX_FILE_SIZE" value="5000" />
+                            <input style="width: 320px;" class="btn btn-dark" name="userskin" type="file" /><br>
+                            <input style="margin-top: 8px; width: 320px;" class="btn btn-dark" type="submit" value="Загрузить" />
+                        </form>
+                    </div>
+                    <div align="center" style="margin-top: 10px;">
+                        <canvas style="border-radius: 6px;" id="skin_container"></canvas>
+                    </div>
+                    <div align="right">
+                        <p>ЛКМ для поворота. Колёсо мыши для приближения.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 16px; width: 675px;">
+                <div class="card-body">
+                    <div>
+                        <h3 class="card-title">Изменение пароля</h3>
+                    </div>
+                    <div align="center">
+                        <p>Новый пароль должен иметь длину 6-16 символов</p>
+                    </div>
+                    <div align="center">
+                        <form method="post">
+                            <input type="hidden" name='changepassword' value="1" />
+                            <div style="width: 380px;">
+                                <input name='password' type="password" class="form-control" placeholder="Текущий пароль" aria-label="OldPassword" aria-describedby="basic-addon1">
+                            </div>
+                            <div style="width: 380px; margin-top: 10px;">
+                                <input name='new' type="password" class="form-control" placeholder="Новый пароль" aria-label="NewPassword" aria-describedby="basic-addon1">
+                            </div>
+                            <div style="width: 380px; margin-top: 10px;">
+                                <input name='repeat' type="password" class="form-control" placeholder="Повтор пароля" aria-label="PasswordRepeat" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="d-grid gap-2" style="width: 380px; margin-top: 10px;">
+                                <button type="submit" class="btn btn-dark">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Изменить&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div style="height: 12px;"></div>
+                </div>
+            </div>
+
+            <div style="height: 25vh;"></div>
+
+        </div>
+
+        <script src="/website/sources/js/skinview3d.js"></script>
+        <script>
+            VANTA.WAVES({
+                el: "#contentxbody",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0xa8a8a8,
+                shininess: 0.00,
+                waveHeight: 31.00,
+                waveSpeed: 0.20,
+                zoom: 1.03
+            });
+
+            let skinViewer = new skinview3d.FXAASkinViewer({
+                canvas: document.getElementById("skin_container"),
+                width: 300,
+                height: 400,
+                skin: "/website/skins/.default.png"
+            });
+            skinViewer.width = 635;
+            skinViewer.height = 400;
+            skinViewer.loadPanorama("/website/sources/images/personal-panorama.jpg");
+            skinViewer.fov = 90;
+            let control = skinview3d.createOrbitControls(skinViewer);
+            control.enableRotate = true;
+            control.enableZoom = true;
+            control.enablePan = false;
+            let walk = skinViewer.animations.add(skinview3d.RunningAnimation);
+            skinViewer.animations.paused = true;
+        </script>
+    </body>
+
+    </html>

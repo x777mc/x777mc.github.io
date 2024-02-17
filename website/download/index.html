@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Скачать лаунчер</title>
+	<link href="/website/sources/images/favicon.png" rel="icon">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body style="background-image: url('/website/sources/images/landscape.jpg');">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+	<script>
+		window.onload = function() {
+			document.body.onselectstart = function() {
+				return false;
+			}
+		}
+
+		function fireUp() {
+			var a = document.createElement("a");
+			a.href = "/website/launcher/x777mc.jar";
+			a.setAttribute("download", "x777mc.jar");
+			a.click();
+			window.location.replace("/website/download/info");
+		}
+	</script>
+
+	<div align="center">
+		<div style="height: 400px; margin-top: 20vh;" align="center">
+			<div class="card" style="width: 32rem;">
+				<div class="card-body">
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link" href="/website">Главная</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/website/signup">Регистрация</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="/website/download">Лаунчер</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="/website/download/info">Информация</a>
+						</li>
+					</ul>
+					<div align="left" style="margin-top: 28px;">
+						<div>
+							<h4 class="card-title">Установка Java 8</h4>
+							<div>
+								<div style="display: inline-block;">
+									<p class="card-text">
+										Для работы лаунчера и игры <br>
+										необходима&nbsp;&nbsp;Java 8.&nbsp;&nbsp;Скачать <br>
+										её&nbsp;&nbsp;можно&nbsp;&nbsp;на&nbsp;&nbsp;офф.&nbsp;&nbsp;сайте&nbsp;&nbsp;в <br>
+										случае отсутствия. </p>
+								</div>
+								<img src="/website/sources/images/java.jpg" style="width: 128px; margin-top: -86px; margin-left: 72px;" style="display: inline;">
+							</div>
+							<a href="https://www.java.com/ru/" class="btn btn-dark" target="_blank" rel="noopener noreferrer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Скачать Java&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						</div>
+
+						<div align="right" style="margin-top: 16px;">
+							<h4 class="card-title">Загрузка лаунчера</h4>
+							<div>
+								<div align="left">
+									<img src="/website/sources/images/build.gif" style="width: 128px; margin-left: 50px;">
+								</div>
+								<div style="margin-top: -126px;">
+									<p class="card-text">
+										Лаунчер представляет из себя <br>
+										jar файл, работающий на всех <br>
+										операционных&nbsp;&nbsp;системах,&nbsp;&nbsp;где <br>
+										установлена&nbsp;&nbsp;Java.&nbsp;&nbsp;Помести&nbsp;&nbsp;в <br>
+										удобное для тебя место.</p>
+								</div>
+								<div style="margin-top: 12px;">
+									<a class="btn btn-dark" onclick="fireUp()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Загрузить лаунчер&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
